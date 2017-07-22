@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ling and Robbie</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="http://bootswatch.com/sandstone/bootstrap.css">
+  </head>
+
+  <body>
+  	<%= render "layouts/header" %>
+  	<div id = "layout">
+  	<div class="container">
+    	<%= yield %>
+    </div>
+    </div>
+    <%= render "layouts/footer" %>
+  </body>
+</html>
