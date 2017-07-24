@@ -1,0 +1,20 @@
+<%= render "responses/header" %>
+
+<div class="row index">
+  <h3 style="text-align: center">Guests Who Are Not Coming</h3><br>
+  <hr class="style-heart">
+  <div class="container">
+  <div class="row table-head">
+    <div class="col-md-2 col-md-offset-4">Name</div>
+    <div class="col-md-2">Message</div>
+  </div>
+  <% @responses_no.each do |r| %>
+    <div class="row table-body">
+      <div class="col-md-2 col-md-offset-4"><%= r.user.first_name %> <%= r.user.last_name %> </div>
+      <div class="col-md-2"><%= r.message %></div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<hr class="style-fade">
+
