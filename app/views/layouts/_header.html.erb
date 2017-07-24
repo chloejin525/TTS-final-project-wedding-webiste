@@ -32,7 +32,7 @@
 								<% if current_user.response == nil %>
 									<%= link_to "RSVP", new_response_path %>
 								<% else %>
-									<%= link_to "RSVP", edit_response_path(id: current_user.response.id) %>
+									<%= link_to "RSVP", response_path(id: current_user.response.id) %>
 								<% end %>
 							<% else %>
 								<%= link_to "RSVP", new_response_path %>

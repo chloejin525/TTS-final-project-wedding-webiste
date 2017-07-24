@@ -1,34 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1 style="text-align: center">You have RSVPed!</h1>
+<hr class="style-heart">
+<p style="text-align: center" id="notice"><%= notice %></p>
 
-<p>
-  <strong>Attendance:</strong>
-  <%= @response.attendance %>
-</p>
+<div style="text-align: center">
+  <% if current_user.response.attendance == "No" %>
+    <h4>You are NOT coming to the wedding.</h4>
+    <h4>You will be missed!</h4>
 
-<p>
-  <strong>Number:</strong>
-  <%= @response.number %>
-</p>
+  <% else %>
+    <h4>You are coming to the wedding with <%= pluralize(current_user.response.number-1, "guest") %>. </h4>
+    <h4>You've chosen <em><%= current_user.response.entree %></em> as your entree. </h4>
 
-<p>
-  <strong>Entree:</strong>
-  <%= @response.entree %>
-</p>
+  <% end %>
 
-<p>
-  <strong>Message:</strong>
-  <%= @response.message %>
-</p>
+  <hr class="style-fade">
 
-<p>
-  <strong>User:</strong>
-  <%= @response.user %>
-</p>
+  <p> Changed your mind? <%= link_to 'Click ME!', edit_response_path(@response), class: "btn btn-danger", style: "color: #fff" %></p>
 
-<p>
-  <strong>Guest:</strong>
-  <%= @response.guest %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_response_path(@response) %> |
-<%= link_to 'Back', responses_path %>
