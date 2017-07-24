@@ -1,0 +1,38 @@
+<div class="row">
+  <h3 style="text-align: center">Who's Coming? (<%= @total_coming %>)</h3>
+  <hr class="style15">
+  <div class="container">
+  <div class="row table-head">
+    <div class="col-md-2">Name</div>
+    <div class="col-md-2">Number of Attendees</div>
+    <div class="col-md-2">Other Guests</div>
+    <div class="col-md-2">Entree</div>
+    <div class="col-md-4">Message</div>
+  </div>
+  <% @responses_yes.each do |r| %>
+    <div class="row table-body">
+      <div class="col-md-2"><%= r.user.first_name %> <%= r.user.last_name %> </div>
+      <div class="col-md-2"><%= r.number %></div>
+      <div class="col-md-2"><%= r.guest %></div>
+      <div class="col-md-2"><%= r.entree %></div>
+      <div class="col-md-4"><%= r.message %></div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<hr class="style14">
+
+<div class="row">
+  <h3 style="text-align: center">Who's not coming? (<%= @responses_no.count %>)</h3>
+  <hr class="style15">
+  <div class="row table-head">
+    <div class="col-md-2 col-md-offset-4">Name</div>
+    <div class="col-md-4">Message</div>
+  </div>
+  <% @responses_no.each do |r| %>
+    <div class="row table-body">
+      <div class="col-md-2 col-md-offset-4"><%= r.user.first_name %> <%= r.user.last_name %> </div>
+      <div class="col-md-4"><%= r.message %></div>
+    </div>
+  <% end %>
+</div>

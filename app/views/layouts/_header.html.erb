@@ -26,7 +26,18 @@
 							</ul>
 						</li>
 
-						<li><a href="#">RSVP</a></li>
+						<!--RSVP-->
+						<li>
+							<% if user_signed_in? %>
+								<% if current_user.response == nil %>
+									<%= link_to "RSVP", new_response_path %>
+								<% else %>
+									<%= link_to "RSVP", edit_response_path(id: current_user.response.id) %>
+								<% end %>
+							<% else %>
+								<%= link_to "RSVP", new_response_path %>
+							<% end %>	
+						</li>
 
 					</ul>
 
@@ -39,7 +50,13 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <%= current_user.last_name %><span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                 				<%# if current_user.role == "admin" %>	
+                 				<li class="divider"></li>
+                 				<li><%= link_to "Manage RSVP", responses_path %></li>
+                 				<li><%= link_to "Manage Registray", "#" %></li>
+                 				<li class="divider"></li>
                  				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                 				<%# end %>
 							</ul>
 						</li>
 						

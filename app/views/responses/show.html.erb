@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attendance:</strong>
+  <%= @response.attendance %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @response.number %>
+</p>
+
+<p>
+  <strong>Entree:</strong>
+  <%= @response.entree %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @response.message %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @response.user %>
+</p>
+
+<p>
+  <strong>Guest:</strong>
+  <%= @response.guest %>
+</p>
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>
