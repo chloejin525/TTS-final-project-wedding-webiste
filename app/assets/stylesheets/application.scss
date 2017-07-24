@@ -23,21 +23,19 @@
 
 #layout {
 	.container {
-		margin-top: 60px;
+		margin-top: 80px;
 		margin-bottom: 30px; 
 	}
-	height: 600px;
 }
 
 .main {
-	background: url(IMG_3.jpg) no-repeat fixed;
-	background-size: cover;
-	padding-bottom: 20px;
-	margin: 0 -70px -30px -70px;
- 	.jumbotron {
-		background: none;
+	
+ 	.home {
+ 		background: url(http://orig06.deviantart.net/b208/f/2008/116/6/a/grunge_texture__by_jrmb_stock.jpg) no-repeat center center  fixed;
+		background-size: cover;
 		text-align: center;
-		color: #212F3D;
+		color: #FFF;
+		margin: -20px -70px -30px -70px;
 	}
 }
 
@@ -70,16 +68,16 @@ hr.style-heart:after {
 .footer {
 	background-color: #3E3F3A;
 	color: #E0E0DB;
-	height: 120px;
+	height: 150px;
 	padding: 15px 0;
 }
 
 .footer ul {
+	text-align: right;
 	list-style: none;
 }
 
 .footer li {
-	text-align: right;
 	margin-bottom: 10px;
 }
 
