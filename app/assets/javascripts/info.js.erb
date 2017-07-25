@@ -1,0 +1,21 @@
+$(document).ready(function (){
+
+    function initialize() {
+      var venueCoords = new google.maps.LatLng(35.835991, -78.759460);
+      
+      var mapOptions = {
+      	zoom: 14,
+      	center: venueCoords,
+      	scrollwheel: false
+      };
+        
+      var map = new google.maps.Map(document.getElementById('venue-map-canvas'), mapOptions);   
+
+      var userMarker = new google.maps.Marker({
+        position: venueCoords,
+        map: map,
+      }); 
+    }
+      
+    google.maps.event.addDomListener(window, 'load', initialize);
+});	
