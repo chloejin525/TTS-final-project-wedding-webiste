@@ -1,0 +1,23 @@
+<div class="row index">
+  <h3 style="text-align: center">Guests Who Choose <em><%= food_choice %></em></h3><br>
+  <hr class="style-heart">
+  <div class="container">
+  <div class="row table-head">
+    <div class="col-md-2">Name</div>
+    <div class="col-md-2">Attendance</div>
+    <div class="col-md-2">Number of Attendees</div>
+    <div class="col-md-2">Other Guests</div>
+    <div class="col-md-4">Message</div>
+  </div>
+  <% responses.each do |r| %>
+    <div class="row table-body">
+      <div class="col-md-2"><%= r.user.first_name %> <%= r.user.last_name %> </div>
+      <div class="col-md-2"><%= r.attendance %> </div>
+      <div class="col-md-2"><%= r.number %></div>
+      <div class="col-md-2"><%= r.guest %></div>
+      <div class="col-md-4"><%= r.message %></div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<hr class="style-fade">
