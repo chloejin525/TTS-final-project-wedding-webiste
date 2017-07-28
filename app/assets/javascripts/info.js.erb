@@ -9,12 +9,22 @@ $(document).ready(function (){
       	scrollwheel: false
       };
         
-      var map = new google.maps.Map(document.getElementById('venue-map-canvas'), mapOptions);   
+      var map = new google.maps.Map(document.getElementById('venue-map-canvas'), mapOptions);  
+
+      var contentString = 'Reedy Creek Entrance';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
 
       var userMarker = new google.maps.Marker({
         position: venueCoords,
         map: map,
       }); 
+
+      userMarker.addListener('click', function(){
+        infowindow.open(map, userMarker);
+      })
     }
       
     google.maps.event.addDomListener(window, 'load', initialize);
