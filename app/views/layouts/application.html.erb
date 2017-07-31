@@ -4,9 +4,13 @@
     <title>Ling and Robbie</title>
     <%= csrf_meta_tags %>
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>">
+    </script>
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/sandstone/bootstrap.css">
+    
   </head>
 
   <body>
@@ -16,10 +20,8 @@
       	<%= yield %>
       </div>
     </div>
-    <%= render "layouts/footer" %>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>">
-      
-    </script>
+    <%= render "layouts/footer" %>
+    
   </body>
 </html>
