@@ -9,13 +9,12 @@
 
   <% else %>
     <h4>You are coming to the wedding with <%= pluralize(current_user.response.number-1, "guest") %>. </h4>
-    <h4>You've chosen <em><%= current_user.response.entree %></em> as your entree. </h4>
+    <h4>You've chosen <em>#</em> as your entree. </h4>
 
   <% end %>
 
   <hr class="style-fade">
 
-  <p> Changed your mind? <%= link_to 'Click ME!', edit_response_path(@response), class: "btn btn-danger", style: "color: #fff" %></p>
 
 </div>
 

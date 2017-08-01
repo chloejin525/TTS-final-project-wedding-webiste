@@ -1,4 +1,7 @@
 class Response < ApplicationRecord
   belongs_to :user
-  serialize :guest, Array
+
+  has_many :guests, inverse_of: :response
+  accepts_nested_attributes_for :guests
+
 end
