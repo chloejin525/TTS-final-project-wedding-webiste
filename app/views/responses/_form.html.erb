@@ -26,7 +26,8 @@
     <!-- Add new guests within the response form -->
     <div class="response-guest">
     <h3>Guests</h3>
-      <%= form.fields_for :guest, @guest do |guest_form| %>
+    <% for guest in @response.guests %>
+      <%= form.fields_for :guests, guest do |guest_form| %>
         <div class="form-group">
             <%= guest_form.label :first_name %>
             <%= guest_form.text_field :first_name %>
@@ -44,6 +45,7 @@
           </div>
 
       <% end %>
+    <% end %>
     </div>
 
   </div>

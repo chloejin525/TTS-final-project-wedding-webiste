@@ -34,7 +34,7 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   def new
     @response = Response.new
-    @guest = @response.guests.build
+    1.times {@response.guests.build}
   end
 
   # GET /responses/1/edit
