@@ -44,7 +44,6 @@ class ResponsesController < ApplicationController
   # POST /responses
   # POST /responses.json
   def create
-    byebug
     @response = Response.new(response_params)
 
     respond_to do |format|

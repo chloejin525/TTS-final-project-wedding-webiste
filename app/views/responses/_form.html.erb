@@ -27,7 +27,9 @@
     <div class="response-guest">
     <h3>Guests</h3>
     <% for guest in @response.guests %>
-      <%= form.fields_for :guests, guest do |guest_form| %>
+                        <!-- The guests_attributes [] can be :guests -->
+                        <!-- See resposne controller for :guests_attributes -->
+      <%= form.fields_for "guests_attributes[]", guest do |guest_form| %>
         <div class="form-group">
             <%= guest_form.label :first_name %>
             <%= guest_form.text_field :first_name %>
