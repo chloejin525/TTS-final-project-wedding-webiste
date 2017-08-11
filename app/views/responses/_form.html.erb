@@ -25,31 +25,12 @@
 
     <!-- Add new guests within the response form -->
     <div class="response-guest">
-    <h3>Guests</h3>
-    <% for guest in @response.guests %>
-                        <!-- The guests_attributes [] can be :guests -->
-                        <!-- See resposne controller for :guests_attributes -->
-      <%= form.fields_for "guests_attributes[]", guest do |guest_form| %>
-        <div class="form-group">
-            <%= guest_form.label :first_name %>
-            <%= guest_form.text_field :first_name %>
-          </div>
-
-          <div class="form-group">
-            <%= guest_form.label :last_name %>
-            <%= guest_form.text_field :last_name %>
-          </div>
-
-          <div class="form-group">
-            <%= guest_form.label "What would you like to have for Entree?" %><br>
-            <%= guest_form.radio_button :food, 'Pasta' %><p> Penne Pasta with Grilled Portobellos, Spinach and Roasted Red Peppers in Basil Cream Sauce</p>
-            <%= guest_form.radio_button :food, 'Ribs' %><p>BBQ Ribs</p>
-          </div>
-
-      <% end %>
-    <% end %>
+      <h3>Guests</h3>
+      <div id="guest-field">
+        <!-- Because it is 'guest' here in the collection @response.guests, which corresponds to the guest in the first line of guest partial -->            
+        <%= render partial: 'guest', collection: @response.guests %>
+      </div>
     </div>
-
   </div>
   <!-- Hidden field ends -->
 
@@ -79,4 +60,9 @@
        attendanceYes.style['display'] = 'none';
      }
   };
+</script>
+
+<script type="text/javascript">
+  
+
 </script>
