@@ -8,9 +8,7 @@
     <h4>You will be missed!</h4>
 
   <% else %>
-    <h4>You are coming to the wedding with <%= pluralize(current_user.response.number-1, "guest") %>. </h4>
     <h4>You've chosen <em>#</em> as your entree. </h4>
-
   <% end %>
 
   <hr class="style-fade">
