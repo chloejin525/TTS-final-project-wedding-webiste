@@ -1,16 +1,4 @@
 <%= form_with(model: response, local: true) do |form| %>
-  <% if response.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
-
-    <ul>
-      <% response.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-
   <div class="form-group">
     <%= form.label "Are you coming to the wedding on October 21, 2017 in Cary, NC?" %><br>
     <%= form.select(:attendance, ['No', 'Yes']) %>
@@ -18,40 +6,22 @@
 
   <!-- Hidden field (which only appears when user select yes) starts -->
   <div id="attendance-yes" style="display: none">
-    <div class="form-group">
-      <%= form.label "How many guests are coming (including yourself?)" %><br>
-      <%= form.number_field :number, id: :response_number %>
-    </div>
-
     <!-- Add new guests within the response form -->
     <div class="response-guest">
       <h3>Guests</h3>
       <div id="guest-field"> 
-        <% for guest in @response.guests %> 
-          <!-- :guests here can be "guests_attributes[]"-->
-          <!-- the "form" in form.fields_for cannot be omitted -->          
-          <%= form.fields_for :guests, guest do |guest_form| %>
-              <div class="form-group">
-                <%= guest_form.label :first_name %>
-                <%= guest_form.text_field :first_name %>
-              </div>
-
-              <div class="form-group">
-                <%= guest_form.label :last_name %>
-                <%= guest_form.text_field :last_name %>
-              </div>
-
-              <div class="form-group">
-                <%= guest_form.label "What would you like to have for Entree?" %><br>
-                <%= guest_form.radio_button :food, 'Pasta' %><p> Penne Pasta with Grilled Portobellos, Spinach and Roasted Red Peppers in Basil Cream Sauce</p>
-                <%= guest_form.radio_button :food, 'Ribs' %><p>BBQ Ribs</p>
-              </div>
-          <% end %>
-          <hr class="style-fade">
+        <!-- :guests here can be "guests_attributes[]"-->
+        <!-- the "form" in form.fields_for cannot be omitted -->          
+        <%= form.fields_for :guests, @response.guests do |guest_form| %>
+          <!-- has to be f here for cocoon to work --> 
+          <%= render 'guest_fields', f: guest_form %>
+          <!-- the form here refers to the first-level form -->
+          <%= link_to_add_association 'Add Another Guest', form, :guests, class: "btn btn-primary", style: "color: #fff" %>
         <% end %>
       </div>
     </div>
   </div>
+  <br>
   <!-- Hidden field ends -->
 
     <div class="form-group">

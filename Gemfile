@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# form
+gem 'cocoon'
+gem 'simple_form'
+
 # styling 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
