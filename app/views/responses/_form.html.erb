@@ -8,7 +8,10 @@
   <div id="attendance-yes" style="display: none">
     <!-- Add new guests within the response form -->
     <div class="response-guest">
-      <h3>Guests</h3>
+      <h3>Guest List</h3>
+      <p>* Please remember to include yourself.</p>
+      <hr class="style-double">
+
       <div id="guest-field"> 
         <!-- :guests here can be "guests_attributes[]"-->
         <!-- the "form" in form.fields_for cannot be omitted -->          
@@ -16,7 +19,8 @@
           <!-- has to be f here for cocoon to work --> 
           <%= render 'guest_fields', f: guest_form %>
           <!-- the form here refers to the first-level form -->
-          <%= link_to_add_association 'Add Another Guest', form, :guests, class: "btn btn-primary", style: "color: #fff" %>
+          <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+          <%= link_to_add_association 'Guest', form, :guests, style: "font-weight: bold; font-size: 16px" %>
         <% end %>
       </div>
     </div>
@@ -50,9 +54,4 @@
        attendanceYes.style['display'] = 'none';
      }
   };
-</script>
-
-<script type="text/javascript">
-  
-
 </script>

@@ -48,7 +48,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-        format.html { redirect_to @response, notice: 'Response was successfully created.' }
+        format.html { redirect_to @response }
         format.json { render :show, status: :created, location: @response }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class ResponsesController < ApplicationController
   def update
     respond_to do |format|
       if @response.update(response_params)
-        format.html { redirect_to @response, notice: 'Response was successfully updated.' }
+        format.html { redirect_to @response }
         format.json { render :show, status: :ok, location: @response }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     respond_to do |format|
-      format.html { redirect_to responses_url, notice: 'Response was successfully destroyed.' }
+      format.html { redirect_to responses_url }
       format.json { head :no_content }
     end
   end
@@ -92,7 +92,7 @@ class ResponsesController < ApplicationController
 
       @responses_yes = Response.where(attendance: "Yes").sort_by {|r| r.user.last_name}
       @total_coming = 0
-      @responses_yes.each {|r| @total_coming += r.number}
+      @responses_yes.each {|r| @total_coming += r.guests.count}
 
       @responses_no = Response.where(attendance: "No")
 
@@ -103,6 +103,6 @@ class ResponsesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:attendance, :number, :message, :user_id, guests_attributes: [:id, :last_name, :first_name, :food])
+      params.require(:response).permit(:attendance, :message, :user_id, guests_attributes: [:id, :last_name, :first_name, :food])
     end
 end

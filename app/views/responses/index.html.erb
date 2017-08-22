@@ -5,10 +5,10 @@
   <hr class="style-heart">
   <div class="container">
   <div class="row table-head">
-    <div class="col-md-2">Name</div>
+    <div class="col-md-2">User Name</div>
     <div class="col-md-2">Attendance</div>
     <div class="col-md-2">Number of Attendees</div>
-    <div class="col-md-2">Other Guests</div>
+    <div class="col-md-2">Guest List</div>
     <div class="col-md-2">Entree</div>
     <div class="col-md-2">Message</div>
   </div>
@@ -16,9 +16,17 @@
     <div class="row table-body">
       <div class="col-md-2"><%= r.user.first_name %> <%= r.user.last_name %> </div>
       <div class="col-md-2"><%= r.attendance %> </div>
-      <div class="col-md-2"><%= r.number %></div>
-      <div class="col-md-2">#</div>
-      <div class="col-md-2">#</div>
+      <div class="col-md-2"><%= r.guests.count %></div>
+      <div class="col-md-2">
+        <% r.guests.each do |g| %>
+          <%= g.first_name %> <%= g.last_name%><br>
+        <% end %>
+      </div>
+      <div class="col-md-2">
+         <% r.guests.each do |g| %>
+          <%= g.food %><br>
+        <% end %>
+      </div>
       <div class="col-md-2"><%= r.message %></div>
     </div>
   <% end %>
