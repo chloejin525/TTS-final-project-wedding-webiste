@@ -27,26 +27,11 @@
     <div class="response-guest">
       <h3>Guests</h3>
       <div id="guest-field"> 
-        <% for guest in @response.guests %> 
-          <!-- :guests here can be "guests_attributes[]"-->
-          <!-- the "form" in form.fields_for cannot be omitted -->          
-          <%= form.fields_for :guests, guest do |guest_form| %>
-              <div class="form-group">
-                <%= guest_form.label :first_name %>
-                <%= guest_form.text_field :first_name %>
-              </div>
-
-              <div class="form-group">
-                <%= guest_form.label :last_name %>
-                <%= guest_form.text_field :last_name %>
-              </div>
-
-              <div class="form-group">
-                <%= guest_form.label "What would you like to have for Entree?" %><br>
-                <%= guest_form.radio_button :food, 'Pasta' %><p> Penne Pasta with Grilled Portobellos, Spinach and Roasted Red Peppers in Basil Cream Sauce</p>
-                <%= guest_form.radio_button :food, 'Ribs' %><p>BBQ Ribs</p>
-              </div>
-          <% end %>
+        <!-- :guests here can be "guests_attributes[]"-->
+        <!-- the "form" in form.fields_for cannot be omitted -->          
+        <%= form.fields_for :guests, @response.guests do |guest_form| %>
+          <%= render 'guest_fields', guest_form: guest_form %>
+          
           <hr class="style-fade">
         <% end %>
       </div>
