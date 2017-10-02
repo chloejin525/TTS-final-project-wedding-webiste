@@ -15,10 +15,20 @@ function initMap() {
     content: contentString
   });
 
+  
+  var icon = {
+      url: "/assets/wedding_icon.png",
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+  };
+
   var userMarker = new google.maps.Marker({
     position: venueCoords,
     map: map,
+    icon: icon
   }); 
+
 
   userMarker.addListener('click', function(){
     infowindow.open(map, userMarker);

@@ -3,6 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #venue-map-canvas {
-	widht: 100%;
-	height: 500px;
+	width: 100%;
+	height: 300px;
+	margin-top: 20px;
+}
+
+.venue {
+	list-style: none;
+	margin-top: 100px;
+	font-family: 'Mukta', sans-serif;
+	h4 {
+		margin: 15px 0 15px 0;
+	}
+}
+
+.menu-container {
+	text-align: center;
+	font-family: 'Berkshire Swash', cursive, Arial;
+}
+
+.schedule-container {
+	#middle {
+		margin-left: 60px;
+	}
 }

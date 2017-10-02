@@ -8,9 +8,6 @@ class InfoController < ApplicationController
   def schedule
   end
 
-  def accommodation
-  end
-
   def menu
   end
 

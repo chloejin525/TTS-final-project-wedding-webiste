@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'home' => 'info#home'
   get 'venue' => 'info#venue'
   get 'schedule' => 'info#schedule'
-  get 'accommodation' => 'info#accommodation'
   get 'menu' => 'info#menu'
   get 'our_story' => 'info#our_story'
   get 'contact_us' => 'info#contact_us'
